@@ -5,5 +5,6 @@ It provides first time customers with a chance of winning a prize dependent on t
 
 Plaease forward all complaints to george.downe@academytrainee.com 😎👌😎
 
-#Our Structure
+#Our Trello
+https://trello.com/b/nUhgCRkw/labs-spring-boot
 
