@@ -15,22 +15,10 @@ public class AccNumGenImpl6 implements AccNumGenService {
 		HashMap<String, String> accountNumbers = new HashMap<>();
 		String username = "gewg";
 		int letterChoice = rand.nextInt(3);
-		int digitChoice = rand.nextInt(3);
 		Character letter = new Character('a');
 		int accountNumber = 0;
 		String response = "";
-//		Char[] = "abc";
-		switch (letterChoice) {
-		case 0:
-			letter = 'a';
-			break;
-		case 1:
-			letter = 'b';
-			break;
-		case 2:
-			letter = 'c';
-			break;
-		}
+		char[] letters = ("abc").toCharArray();
 
 		accountNumber = 100000 + rand.nextInt(900000);
 		response = Integer.toString(accountNumber);
@@ -39,8 +27,8 @@ public class AccNumGenImpl6 implements AccNumGenService {
 			return "that account number is in use";
 		} else {
 //			accountNumbers.put(key, value);
-			accountNumbers.put(username, letter + response);
-			return letter + response;
+			accountNumbers.put(username, letters[letterChoice] + response);
+			return letters[letterChoice] + response;
 		}
 
 	}

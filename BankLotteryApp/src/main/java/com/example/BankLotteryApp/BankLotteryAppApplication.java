@@ -12,8 +12,8 @@ public class BankLotteryAppApplication {
 
 	public static void main(String[] args) {
 		ApplicationContext ac = SpringApplication.run(BankLotteryAppApplication.class, args);
-		AccNumGenService numGen8 = (AccNumGenService) ac.getBean("numGen");
-		System.out.println(numGen8.generateNumber());
+		AccNumGenService numGen = (AccNumGenService) ac.getBean("numGen");
+		System.out.println(numGen.generateNumber());
 	}
 
 }
