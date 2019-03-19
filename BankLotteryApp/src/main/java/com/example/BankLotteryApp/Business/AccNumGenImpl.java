@@ -19,11 +19,11 @@ public class AccNumGenImpl {
 		int newRandonNum = randNum.nextInt(3);
 		
 		switch (newRandonNum) {
-		case 0: accountDigits = (long) (Math.random() * 999999 + 100000);
+		case 0: accountDigits = (long) (Math.random() * 899999 + 100000);
 		break;
-		case 1: accountDigits = (long) (Math.random() * 99999999 + 10000000);
+		case 1: accountDigits = (long) (Math.random() * 89999999 + 10000000);
 		break;
-		case 2: accountDigits = (long) (Math.random() * 9999999999l + 1000000000);
+		case 2: accountDigits = (long) (Math.random() * 8999999999l + 1000000000);
 		break;
 		}
 		
