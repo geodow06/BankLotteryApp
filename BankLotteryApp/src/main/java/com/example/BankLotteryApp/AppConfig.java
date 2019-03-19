@@ -3,10 +3,10 @@ package com.example.BankLotteryApp;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import com.example.BankLotteryApp.Business.AccNumGen;
-import com.example.BankLotteryApp.Business.AccNumGen6;
-import com.example.BankLotteryApp.Repository.AccountRepository;
-import com.example.BankLotteryApp.Repository.HashmapRepo;
+import repository.AccountRepository;
+import repository.HashmapRepo;
+import service.AccNumGen;
+import service.AccNumGen6;
 
 @Configuration
 public class AppConfig {

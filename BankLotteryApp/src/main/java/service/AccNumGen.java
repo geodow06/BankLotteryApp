@@ -1,4 +1,4 @@
-package com.example.BankLotteryApp.Business;
+package service;
 
 public interface AccNumGen {
  public String accountNumberGenerator();

@@ -4,8 +4,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
-import com.example.BankLotteryApp.Business.AccNumGen6;
-import com.example.BankLotteryApp.Repository.HashmapRepo;
+import repository.HashmapRepo;
+import service.AccNumGen6;
 
 @SpringBootApplication
 public class BankLotteryAppApplication {

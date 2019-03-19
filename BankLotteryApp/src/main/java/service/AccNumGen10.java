@@ -1,10 +1,10 @@
-package com.example.BankLotteryApp.Business;
+package service;
 
 import java.util.Random;
 
 import org.springframework.stereotype.Component;
 
-public class AccNumGen6 implements AccNumGen {
+public class AccNumGen10 implements AccNumGen {
 	Random rand = new Random();
 	
 	public String generateAccountNumber() {
@@ -30,11 +30,11 @@ public class AccNumGen6 implements AccNumGen {
 
 	@Override
 	public String accountNumberGenerator() {
-		String sixDigits="";
-		for(int i=0;i<6;i++) {
+		String tenDigits="";
+		for(int i=0;i<10;i++) {
 			int a = rand.nextInt(9)+0;
-			sixDigits= sixDigits + a;
+			tenDigits= tenDigits + a;
 		}
-		return sixDigits;
+		return tenDigits;
 	}
 }

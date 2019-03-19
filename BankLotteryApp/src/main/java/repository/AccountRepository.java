@@ -1,4 +1,4 @@
-package com.example.BankLotteryApp.Repository;
+package repository;
 
 public interface AccountRepository {
 	public String storeAccount(String account);

@@ -1,4 +1,4 @@
-package com.example.BankLotteryApp.Repository;
+package repository;
 
 import java.util.HashMap;
 

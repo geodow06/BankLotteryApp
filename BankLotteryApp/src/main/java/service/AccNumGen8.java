@@ -1,4 +1,4 @@
-package com.example.BankLotteryApp.Business;
+package service;
 
 import java.util.Random;
 
