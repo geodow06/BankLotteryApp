@@ -3,16 +3,8 @@ package com.example.BankLotteryApp.Business;
 import java.util.HashMap;
 import java.util.Random;
 
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Component;
-
-@Configuration
 public class AccNumGenImpl8 implements AccNumGenService {
-	@Bean
 	@Override
-	@Scope("prototype")
 	public String generateNumber() {
 
 		Random rand = new Random();

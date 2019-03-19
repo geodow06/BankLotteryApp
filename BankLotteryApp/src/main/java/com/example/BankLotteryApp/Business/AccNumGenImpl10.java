@@ -8,11 +8,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-@Configuration
 public class AccNumGenImpl10 implements AccNumGenService {
-	@Bean
 	@Override
-	@Scope("prototype")
 	public String generateNumber() {
 
 		Random rand = new Random();
