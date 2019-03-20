@@ -25,8 +25,9 @@ public class AccountService {
 		return this.accountRepo.findById(id).get();
 	}
 
-	public void createAccount(Account account) {
+	public Long createAccount(Account account) {
 		this.accountRepo.save(account);
+		return account.getId();
 	}
 
 	public void removeAccount(Long id) {
