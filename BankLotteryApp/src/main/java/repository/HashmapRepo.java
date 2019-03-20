@@ -4,8 +4,6 @@ import java.util.HashMap;
 
 public class HashmapRepo implements AccountRepository {
 	HashMap<String, String> accounts = new HashMap<>();
-	
-
 	@Override
 	public String storeAccount(String account) {
 		if(accounts.containsValue(account)) {
@@ -14,7 +12,5 @@ public class HashmapRepo implements AccountRepository {
 			accounts.put(account, account);
 			return "Account added!";
 		}
-		
 	}
-
 }

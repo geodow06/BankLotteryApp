@@ -11,7 +11,7 @@ import service.AccNumGen6;
 @Configuration
 public class AppConfig {
 	@Bean
-	public AccNumGen generate() {
+	public AccNumGen accountNumgenerator() {
 		return new AccNumGen6();
 	}
 	@Bean
