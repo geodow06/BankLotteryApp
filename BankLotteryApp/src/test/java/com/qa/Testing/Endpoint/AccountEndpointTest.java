@@ -15,6 +15,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.jms.core.JmsTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.client.RestTemplate;
 
@@ -36,6 +37,9 @@ public class AccountEndpointTest {
 	@Mock
 	private RestTemplate rest;
 	
+	@Mock
+	private JmsTemplate jms;
+	
 	private static final Account MOCK_OBJ1 = new Account("Send");
 	private static final Account MOCK_OBJ2 = new Account("Help");
 	private static final List<Account> MOCK_LIST = new ArrayList<Account>();
@@ -44,7 +48,7 @@ public class AccountEndpointTest {
 	
 	@Before
 	public void setup() {
-		end = new AccountEndpoint(src, rest);
+		end = new AccountEndpoint(src, rest, jms);
 		MOCK_LIST.add(MOCK_OBJ1);
 		MOCK_LIST.add(MOCK_OBJ2);
 	}
@@ -83,7 +87,6 @@ public class AccountEndpointTest {
 	public void testCheckWinner() {
 		MOCK_OBJ1.setAccountId("c111111");
 		Mockito.when(this.src.getAccountById(Mockito.anyLong())).thenReturn(MOCK_OBJ1);
-		System.out.println(MOCK_OBJ1.getAccountId());
 		Mockito.when(this.rest.exchange(MOCK_URL + "c111111", HttpMethod.POST, null, String.class)).thenReturn(MOCK_BODY_RESPONSE);
 		assertEquals(MOCK_BODY_RESPONSE.getBody(), end.checkWinner(1L));
 	}

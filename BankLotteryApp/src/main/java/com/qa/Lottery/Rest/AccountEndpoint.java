@@ -3,6 +3,7 @@ package com.qa.Lottery.Rest;
 import java.util.List;
 
 import org.springframework.http.HttpMethod;
+import org.springframework.jms.core.JmsTemplate;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,10 +21,12 @@ public class AccountEndpoint {
 
 	private AccountService accountService;
 	private RestTemplate restTemplate;
+	private JmsTemplate jmsTemplate;
 
-	public AccountEndpoint(AccountService accountService, RestTemplate restTemplate) {
+	public AccountEndpoint(AccountService accountService, RestTemplate restTemplate, JmsTemplate jmsTemplate) {
 		this.accountService = accountService;
 		this.restTemplate = restTemplate;
+		this.jmsTemplate = jmsTemplate;
 	}
 	
 	@GetMapping("/getAllAccounts")
@@ -39,7 +42,7 @@ public class AccountEndpoint {
 	@PostMapping("/createAccount")
 	public Long createAccount(@RequestBody Account account) {
 		account.setAccountId(this.restTemplate.exchange("http://localhost:8081/getNumber", HttpMethod.GET, null, String.class).getBody());
-		//this.restTemplate.postForLocation("http://localhost:8081/actuator/refresh", null);
+		jmsTemplate.convertAndSend("Help Me", account);
 		return this.accountService.createAccount(account);
 		
 	}
