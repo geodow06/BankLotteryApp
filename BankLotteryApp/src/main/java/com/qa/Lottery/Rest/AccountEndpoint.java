@@ -1,8 +1,7 @@
 package com.qa.Lottery.Rest;
 
-import java.util.List;import javax.xml.ws.Response;
+import java.util.List;
 
-import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -46,18 +45,18 @@ public class AccountEndpoint {
 	}
 	
 	@DeleteMapping("/removeAccount/{id}")
-	public void removeAccount(@PathVariable Long id) {
-		this.accountService.removeAccount(id);
+	public boolean removeAccount(@PathVariable Long id) {
+		return this.accountService.removeAccount(id);
 	}
 	
 	@DeleteMapping("/removeAll")
-	public void removeAll() {
-		this.accountService.removeAll();
+	public boolean removeAll() {
+		return this.accountService.removeAll();
 	}
 	
 	@PutMapping("/updateAccount/{id}")
-	public void updateAccount(@RequestBody Account account,@PathVariable Long id) {
-		this.accountService.updateAccount(account, id);
+	public String updateAccount(@RequestBody Account account,@PathVariable Long id) {
+		return this.accountService.updateAccount(account, id);
 	}
 	
 	@GetMapping("/checkWinner/{id}")

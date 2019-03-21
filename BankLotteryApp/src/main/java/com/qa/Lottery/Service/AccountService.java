@@ -15,7 +15,6 @@ public class AccountService {
 	public AccountService(AccountRepo accountRepo) {
 		this.accountRepo = accountRepo;
 	}
-	
 
 	public List<Account> getAllAccounts() {
 		return this.accountRepo.findAll();
@@ -30,15 +29,17 @@ public class AccountService {
 		return account.getId();
 	}
 
-	public void removeAccount(Long id) {
+	public boolean removeAccount(Long id) {
 		this.accountRepo.deleteById(id);
+		return this.accountRepo.existsById(id);
 	}
 
-	public void removeAll() {
+	public boolean removeAll() {
 		this.accountRepo.deleteAll();
+		return this.accountRepo.count() == 0;
 	}
 
-	public void updateAccount(Account account, Long id) {
+	public String updateAccount(Account account, Long id) {
 		if (this.accountRepo.existsById(id)) {
 			if (account.getName() != null) {
 				this.accountRepo.getOne(id).setName(account.getName());
@@ -46,6 +47,9 @@ public class AccountService {
 			if (account.getAccountId() != null) {
 				this.accountRepo.getOne(id).setName(account.getAccountId());
 			}
+			return "Done";
+		} else {
+			return "No such account";
 		}
 	}
 }
