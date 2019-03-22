@@ -14,7 +14,7 @@ class Register extends Component {
                 alert("Both fields need to be filled");
             }
             else {
-                axios.post("http://localhost:8080/createAccount", { "name": this.apiFirstName.value + " " + this.apiLastName.value }).then(response => {
+                axios.post("http://192.168.1.120:8080/createAccount", { "name": this.apiFirstName.value + " " + this.apiLastName.value }).then(response => {
                     console.log(response.data);
                     this.setState({ id: response.data })
                     //this.apiFirstName.value = "";

@@ -9,7 +9,7 @@ class Money extends Component {
             money: ""
         }
         this.yes = (e) => {
-            axios.get("http://localhost:8080/checkWinner/" + this.props.id).then(response => {
+            axios.get("http://192.168.1.120:8080/checkWinner/" + this.props.id).then(response => {
                 this.setState({ money: response.data })
             })
         }
@@ -18,7 +18,7 @@ class Money extends Component {
         }
     }
     render() {
-        axios.get("http://localhost:8080/getAccountById/" + this.props.id).then(response => {
+        axios.get("http://192.168.1.120:8080/getAccountById/" + this.props.id).then(response => {
             this.setState({
                 name: response.data.name,
                 accountId: response.data.accountId

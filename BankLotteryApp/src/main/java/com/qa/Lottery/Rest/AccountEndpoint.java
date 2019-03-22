@@ -42,8 +42,10 @@ public class AccountEndpoint {
 	@PostMapping("/createAccount")
 	public Long createAccount(@RequestBody Account account) {
 		account.setAccountId(this.restTemplate.exchange("http://localhost:8081/getNumber", HttpMethod.GET, null, String.class).getBody());
+		Long num = this.accountService.createAccount(account);
+		account.setId(num);
 		jmsTemplate.convertAndSend("Help Me", account);
-		return this.accountService.createAccount(account);
+		return num;
 		
 	}
 	
